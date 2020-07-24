@@ -1,0 +1,23 @@
+{
+  "name": "testediobot",
+  "version": "1.0.0",
+  "description": "Chatbot fit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soaresprogramador/TesteDIOBot.git"
+  },
+  "author": "Paulo Soares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soaresprogramador/TesteDIOBot/issues"
+  },
+  "homepage": "https://github.com/soaresprogramador/TesteDIOBot#readme",
+  "dependencies": {
+    "dialogflow": "^1.2.0",
+    "node-telegram-bot-api": "^0.50.0"
+  }
+}
