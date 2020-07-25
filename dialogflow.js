@@ -1,8 +1,9 @@
+
 const dialogflow = require('dialogflow');
 
 const configs = require('./testediobotagent.json');
 
-const sessionjClient = new dialogflow.SessionsClient({
+const sessionClient = new dialogflow.SessionsClient({
     project_id: configs.project_id,
     credentials: {
         private_key: configs.private_key,
@@ -17,13 +18,16 @@ async function sendMessage(chatId, message){
         queryInput: {
             text: {
                 text: message,
-                languageCode: 'pt-Br'
+                languageCode: 'pt-Br',
             }
         }
     }
-    const response = await sessionClient.detectIntent(request);
+    const responses = await sessionClient.detectIntent(request);
     const result = responses[0].queryResult;
-    console.log(JSON.stringify(result, null, 2));
+    return { 
+        text: result.fulfillmentText, 
+        intent: result.intent.displayName, 
+        fields: result.parameters.fields };
 };
 
-sendMessage('Saudações', 'Oi');
+module.exports.sendMessage = sendMessage;
